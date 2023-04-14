@@ -57,6 +57,7 @@
      <Folder Include="Assets\Plugins\Android\libs" />
      <Folder Include="Assets\Plugins\WSA\x64" />
      <Folder Include="Assets\Plugins\x86_64" />
+     <Folder Include="Assets\Plugins\arm64" />
      <Folder Include="Assets\Plugins\WSA\x86" />
      <Folder Include="Assets\Plugins\xlua.bundle\Contents" />
      <Reference Include="UnityEngine">

@@ -6,6 +6,8 @@ namespace RPG.Actor
 {
     public class Actor : MonoBehaviour
     {
+        public GameObject weapon;
+    
         private Animator _animator;
 
         private CharacterController _characterController;
@@ -13,7 +15,7 @@ namespace RPG.Actor
         private InputActionAsset _inputActionAsset;
 
         private const float GravitationalAcceleration = -9.8f;
-        private const float JumpVelocity = 4.0f;
+        private const float JumpVelocity = 8.0f;
         private float _verticalVelocity;
         
         private Transform _playerTransform;
@@ -79,9 +81,8 @@ namespace RPG.Actor
             //         attackNumber = 0;
             //     }
             // };
-
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
+            
+            weapon.SetActive(false);
         }
 
         private void Update()

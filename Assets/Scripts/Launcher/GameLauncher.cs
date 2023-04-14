@@ -12,7 +12,7 @@ public class GameLauncher : MonoBehaviour
     private void Awake()
     {
         GameManager.GetInstance();
-        LuaEntrance.GetInstance();
+        // LuaEntrance.GetInstance();
     }
 
     private void Start()

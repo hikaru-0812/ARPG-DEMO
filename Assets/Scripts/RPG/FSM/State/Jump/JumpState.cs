@@ -22,14 +22,16 @@ namespace RPG.FSM.State.Jump
         public override void OnUpdate()
         {
             Debug.Log(name + " update");
-            Animator.SetFloat(AnimatorStringToHash.VerticalVelocity, InputSystem.Instance.VerticalVelocity);
+            Animator.SetFloat(AnimatorStringToHash.VerticalVelocity, InputSystem.Instance.VerticalVelocity, 0.9f, Time.deltaTime);
 
             base.OnUpdate();
         }
 
         protected override void Transition()
         {
-            if (InputSystem.Instance.isGround)
+            if (InputSystem.Instance.VerticalVelocity < -9.8f && 
+                Animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "pl0000_00018" &&
+                Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f)
             {
                 StateManager.TransitionState(FSMState.Idle);
             }

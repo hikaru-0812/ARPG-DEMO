@@ -29,7 +29,7 @@ namespace XLua
 
         internal RealStatePtr rawL;
 
-        internal RealStatePtr L
+        public RealStatePtr L
         {
             get
             {
@@ -43,14 +43,14 @@ namespace XLua
 
         private LuaTable _G;
 
-        internal ObjectTranslator translator;
+        public ObjectTranslator translator;
 
-        internal int errorFuncRef = -1;
+        public int errorFuncRef = -1;
 
 #if THREAD_SAFE || HOTFIX_ENABLE
         internal /*static*/ object luaLock = new object();
 
-        internal object luaEnvLock
+        public object luaEnvLock
         {
             get
             {
@@ -73,6 +73,7 @@ namespace XLua
             lock(luaEnvLock)
 #endif
             {
+                InternalGlobals.Init();
                 LuaIndexes.LUA_REGISTRYINDEX = LuaAPI.xlua_get_registry_index();
 #if GEN_CODE_MINIMIZE
                 LuaAPI.xlua_set_csharp_wrapper_caller(InternalGlobals.CSharpWrapperCallerPtr);
